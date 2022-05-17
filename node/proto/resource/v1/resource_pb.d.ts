@@ -275,6 +275,11 @@ export namespace ApiSecurityDefinition {
 export class ApiResource extends jspb.Message {
   getSecurityDefinitionsMap(): jspb.Map<string, ApiSecurityDefinition>;
   clearSecurityDefinitionsMap(): void;
+  clearSecurityList(): void;
+  getSecurityList(): Array<string>;
+  setSecurityList(value: Array<string>): void;
+  addSecurity(value: string, index?: number): string;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ApiResource.AsObject;
   static toObject(includeInstance: boolean, msg: ApiResource): ApiResource.AsObject;
@@ -288,6 +293,7 @@ export class ApiResource extends jspb.Message {
 export namespace ApiResource {
   export type AsObject = {
     securityDefinitionsMap: Array<[string, ApiSecurityDefinition.AsObject]>,
+    securityList: Array<string>,
   }
 }
 

@@ -118,6 +118,7 @@ class ApiResource(betterproto.Message):
     security_definitions: Dict[str, "ApiSecurityDefinition"] = betterproto.map_field(
         1, betterproto.TYPE_STRING, betterproto.TYPE_MESSAGE
     )
+    security: List[str] = betterproto.string_field(2)
 
 
 @dataclass(eq=False, repr=False)

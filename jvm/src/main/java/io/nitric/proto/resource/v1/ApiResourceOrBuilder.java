@@ -65,4 +65,29 @@ public interface ApiResourceOrBuilder extends
 
   io.nitric.proto.resource.v1.ApiSecurityDefinition getSecurityDefinitionsOrThrow(
       java.lang.String key);
+
+  /**
+   * <code>repeated string security = 2;</code>
+   * @return A list containing the security.
+   */
+  java.util.List<java.lang.String>
+      getSecurityList();
+  /**
+   * <code>repeated string security = 2;</code>
+   * @return The count of security.
+   */
+  int getSecurityCount();
+  /**
+   * <code>repeated string security = 2;</code>
+   * @param index The index of the element to return.
+   * @return The security at the given index.
+   */
+  java.lang.String getSecurity(int index);
+  /**
+   * <code>repeated string security = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the security at the given index.
+   */
+  com.google.protobuf.ByteString
+      getSecurityBytes(int index);
 }

@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ApiResource() {
+    security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -62,6 +63,15 @@ private static final long serialVersionUID = 0L;
                 securityDefinitions__.getKey(), securityDefinitions__.getValue());
             break;
           }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              security_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            security_.add(s);
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -77,6 +87,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        security_ = security_.getUnmodifiableView();
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -207,6 +220,41 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
+  public static final int SECURITY_FIELD_NUMBER = 2;
+  private com.google.protobuf.LazyStringList security_;
+  /**
+   * <code>repeated string security = 2;</code>
+   * @return A list containing the security.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getSecurityList() {
+    return security_;
+  }
+  /**
+   * <code>repeated string security = 2;</code>
+   * @return The count of security.
+   */
+  public int getSecurityCount() {
+    return security_.size();
+  }
+  /**
+   * <code>repeated string security = 2;</code>
+   * @param index The index of the element to return.
+   * @return The security at the given index.
+   */
+  public java.lang.String getSecurity(int index) {
+    return security_.get(index);
+  }
+  /**
+   * <code>repeated string security = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the security at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getSecurityBytes(int index) {
+    return security_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -227,6 +275,9 @@ private static final long serialVersionUID = 0L;
         internalGetSecurityDefinitions(),
         SecurityDefinitionsDefaultEntryHolder.defaultEntry,
         1);
+    for (int i = 0; i < security_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, security_.getRaw(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -246,6 +297,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, securityDefinitions__);
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < security_.size(); i++) {
+        dataSize += computeStringSizeNoTag(security_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getSecurityList().size();
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -263,6 +322,8 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetSecurityDefinitions().equals(
         other.internalGetSecurityDefinitions())) return false;
+    if (!getSecurityList()
+        .equals(other.getSecurityList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -277,6 +338,10 @@ private static final long serialVersionUID = 0L;
     if (!internalGetSecurityDefinitions().getMap().isEmpty()) {
       hash = (37 * hash) + SECURITY_DEFINITIONS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetSecurityDefinitions().hashCode();
+    }
+    if (getSecurityCount() > 0) {
+      hash = (37 * hash) + SECURITY_FIELD_NUMBER;
+      hash = (53 * hash) + getSecurityList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -434,6 +499,8 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       internalGetMutableSecurityDefinitions().clear();
+      security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -463,6 +530,11 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       result.securityDefinitions_ = internalGetSecurityDefinitions();
       result.securityDefinitions_.makeImmutable();
+      if (((bitField0_ & 0x00000002) != 0)) {
+        security_ = security_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.security_ = security_;
       onBuilt();
       return result;
     }
@@ -513,6 +585,16 @@ private static final long serialVersionUID = 0L;
       if (other == io.nitric.proto.resource.v1.ApiResource.getDefaultInstance()) return this;
       internalGetMutableSecurityDefinitions().mergeFrom(
           other.internalGetSecurityDefinitions());
+      if (!other.security_.isEmpty()) {
+        if (security_.isEmpty()) {
+          security_ = other.security_;
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          ensureSecurityIsMutable();
+          security_.addAll(other.security_);
+        }
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -703,6 +785,116 @@ private static final long serialVersionUID = 0L;
         java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiSecurityDefinition> values) {
       internalGetMutableSecurityDefinitions().getMutableMap()
           .putAll(values);
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureSecurityIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        security_ = new com.google.protobuf.LazyStringArrayList(security_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+    /**
+     * <code>repeated string security = 2;</code>
+     * @return A list containing the security.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSecurityList() {
+      return security_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string security = 2;</code>
+     * @return The count of security.
+     */
+    public int getSecurityCount() {
+      return security_.size();
+    }
+    /**
+     * <code>repeated string security = 2;</code>
+     * @param index The index of the element to return.
+     * @return The security at the given index.
+     */
+    public java.lang.String getSecurity(int index) {
+      return security_.get(index);
+    }
+    /**
+     * <code>repeated string security = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the security at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSecurityBytes(int index) {
+      return security_.getByteString(index);
+    }
+    /**
+     * <code>repeated string security = 2;</code>
+     * @param index The index to set the value at.
+     * @param value The security to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSecurity(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSecurityIsMutable();
+      security_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string security = 2;</code>
+     * @param value The security to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSecurity(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSecurityIsMutable();
+      security_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string security = 2;</code>
+     * @param values The security to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSecurity(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureSecurityIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, security_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string security = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSecurity() {
+      security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string security = 2;</code>
+     * @param value The bytes of the security to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSecurityBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureSecurityIsMutable();
+      security_.add(value);
+      onChanged();
       return this;
     }
     @java.lang.Override

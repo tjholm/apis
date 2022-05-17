@@ -254,7 +254,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.nitric.resource.v1.ApiResource = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.nitric.resource.v1.ApiResource.repeatedFields_, null);
 };
 goog.inherits(proto.nitric.resource.v1.ApiResource, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -2116,6 +2116,13 @@ proto.nitric.resource.v1.ApiSecurityDefinition.prototype.hasJwt = function() {
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.nitric.resource.v1.ApiResource.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -2147,7 +2154,8 @@ proto.nitric.resource.v1.ApiResource.prototype.toObject = function(opt_includeIn
  */
 proto.nitric.resource.v1.ApiResource.toObject = function(includeInstance, msg) {
   var f, obj = {
-    securityDefinitionsMap: (f = msg.getSecurityDefinitionsMap()) ? f.toObject(includeInstance, proto.nitric.resource.v1.ApiSecurityDefinition.toObject) : []
+    securityDefinitionsMap: (f = msg.getSecurityDefinitionsMap()) ? f.toObject(includeInstance, proto.nitric.resource.v1.ApiSecurityDefinition.toObject) : [],
+    securityList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -2190,6 +2198,10 @@ proto.nitric.resource.v1.ApiResource.deserializeBinaryFromReader = function(msg,
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readMessage, proto.nitric.resource.v1.ApiSecurityDefinition.deserializeBinaryFromReader, "", new proto.nitric.resource.v1.ApiSecurityDefinition());
          });
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addSecurity(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -2223,6 +2235,13 @@ proto.nitric.resource.v1.ApiResource.serializeBinaryToWriter = function(message,
   if (f && f.getLength() > 0) {
     f.serializeBinary(1, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeMessage, proto.nitric.resource.v1.ApiSecurityDefinition.serializeBinaryToWriter);
   }
+  f = message.getSecurityList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -2246,6 +2265,43 @@ proto.nitric.resource.v1.ApiResource.prototype.getSecurityDefinitionsMap = funct
 proto.nitric.resource.v1.ApiResource.prototype.clearSecurityDefinitionsMap = function() {
   this.getSecurityDefinitionsMap().clear();
   return this;};
+
+
+/**
+ * repeated string security = 2;
+ * @return {!Array<string>}
+ */
+proto.nitric.resource.v1.ApiResource.prototype.getSecurityList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.nitric.resource.v1.ApiResource} returns this
+ */
+proto.nitric.resource.v1.ApiResource.prototype.setSecurityList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.nitric.resource.v1.ApiResource} returns this
+ */
+proto.nitric.resource.v1.ApiResource.prototype.addSecurity = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.nitric.resource.v1.ApiResource} returns this
+ */
+proto.nitric.resource.v1.ApiResource.prototype.clearSecurityList = function() {
+  return this.setSecurityList([]);
+};
 
 
 
