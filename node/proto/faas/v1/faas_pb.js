@@ -92,7 +92,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.nitric.faas.v1.ApiWorkerOptions = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.nitric.faas.v1.ApiWorkerOptions.repeatedFields_, null);
 };
 goog.inherits(proto.nitric.faas.v1.ApiWorkerOptions, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -934,6 +934,13 @@ proto.nitric.faas.v1.ServerMessage.prototype.hasTriggerRequest = function() {
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.nitric.faas.v1.ApiWorkerOptions.repeatedFields_ = [1];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -965,7 +972,7 @@ proto.nitric.faas.v1.ApiWorkerOptions.prototype.toObject = function(opt_includeI
  */
 proto.nitric.faas.v1.ApiWorkerOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    securityDefinition: jspb.Message.getFieldWithDefault(msg, 1, "")
+    securityList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1004,7 +1011,7 @@ proto.nitric.faas.v1.ApiWorkerOptions.deserializeBinaryFromReader = function(msg
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setSecurityDefinition(value);
+      msg.addSecurity(value);
       break;
     default:
       reader.skipField();
@@ -1035,9 +1042,9 @@ proto.nitric.faas.v1.ApiWorkerOptions.prototype.serializeBinary = function() {
  */
 proto.nitric.faas.v1.ApiWorkerOptions.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getSecurityDefinition();
+  f = message.getSecurityList();
   if (f.length > 0) {
-    writer.writeString(
+    writer.writeRepeatedString(
       1,
       f
     );
@@ -1046,20 +1053,39 @@ proto.nitric.faas.v1.ApiWorkerOptions.serializeBinaryToWriter = function(message
 
 
 /**
- * optional string security_definition = 1;
- * @return {string}
+ * repeated string security = 1;
+ * @return {!Array<string>}
  */
-proto.nitric.faas.v1.ApiWorkerOptions.prototype.getSecurityDefinition = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.nitric.faas.v1.ApiWorkerOptions.prototype.getSecurityList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 1));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.nitric.faas.v1.ApiWorkerOptions} returns this
+ */
+proto.nitric.faas.v1.ApiWorkerOptions.prototype.setSecurityList = function(value) {
+  return jspb.Message.setField(this, 1, value || []);
 };
 
 
 /**
  * @param {string} value
+ * @param {number=} opt_index
  * @return {!proto.nitric.faas.v1.ApiWorkerOptions} returns this
  */
-proto.nitric.faas.v1.ApiWorkerOptions.prototype.setSecurityDefinition = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
+proto.nitric.faas.v1.ApiWorkerOptions.prototype.addSecurity = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.nitric.faas.v1.ApiWorkerOptions} returns this
+ */
+proto.nitric.faas.v1.ApiWorkerOptions.prototype.clearSecurityList = function() {
+  return this.setSecurityList([]);
 };
 
 

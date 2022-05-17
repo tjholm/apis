@@ -82,8 +82,10 @@ export namespace ServerMessage {
 }
 
 export class ApiWorkerOptions extends jspb.Message {
-  getSecurityDefinition(): string;
-  setSecurityDefinition(value: string): void;
+  clearSecurityList(): void;
+  getSecurityList(): Array<string>;
+  setSecurityList(value: Array<string>): void;
+  addSecurity(value: string, index?: number): string;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ApiWorkerOptions.AsObject;
@@ -97,7 +99,7 @@ export class ApiWorkerOptions extends jspb.Message {
 
 export namespace ApiWorkerOptions {
   export type AsObject = {
-    securityDefinition: string,
+    securityList: Array<string>,
   }
 }
 

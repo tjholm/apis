@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ApiWorkerOptions() {
-    securityDefinition_ = "";
+    security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -39,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -51,8 +52,11 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
-
-            securityDefinition_ = s;
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              security_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            security_.add(s);
             break;
           }
           default: {
@@ -70,6 +74,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        security_ = security_.getUnmodifiableView();
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -87,29 +94,20 @@ private static final long serialVersionUID = 0L;
             io.nitric.proto.faas.v1.ApiWorkerOptions.class, io.nitric.proto.faas.v1.ApiWorkerOptions.Builder.class);
   }
 
-  public static final int SECURITY_DEFINITION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object securityDefinition_;
+  public static final int SECURITY_FIELD_NUMBER = 1;
+  private com.google.protobuf.LazyStringList security_;
   /**
    * <pre>
    * Apply the api level security definition
    * to this route
    * </pre>
    *
-   * <code>string security_definition = 1;</code>
-   * @return The securityDefinition.
+   * <code>repeated string security = 1;</code>
+   * @return A list containing the security.
    */
-  @java.lang.Override
-  public java.lang.String getSecurityDefinition() {
-    java.lang.Object ref = securityDefinition_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      securityDefinition_ = s;
-      return s;
-    }
+  public com.google.protobuf.ProtocolStringList
+      getSecurityList() {
+    return security_;
   }
   /**
    * <pre>
@@ -117,22 +115,38 @@ private static final long serialVersionUID = 0L;
    * to this route
    * </pre>
    *
-   * <code>string security_definition = 1;</code>
-   * @return The bytes for securityDefinition.
+   * <code>repeated string security = 1;</code>
+   * @return The count of security.
    */
-  @java.lang.Override
+  public int getSecurityCount() {
+    return security_.size();
+  }
+  /**
+   * <pre>
+   * Apply the api level security definition
+   * to this route
+   * </pre>
+   *
+   * <code>repeated string security = 1;</code>
+   * @param index The index of the element to return.
+   * @return The security at the given index.
+   */
+  public java.lang.String getSecurity(int index) {
+    return security_.get(index);
+  }
+  /**
+   * <pre>
+   * Apply the api level security definition
+   * to this route
+   * </pre>
+   *
+   * <code>repeated string security = 1;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the security at the given index.
+   */
   public com.google.protobuf.ByteString
-      getSecurityDefinitionBytes() {
-    java.lang.Object ref = securityDefinition_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      securityDefinition_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+      getSecurityBytes(int index) {
+    return security_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -149,8 +163,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getSecurityDefinitionBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, securityDefinition_);
+    for (int i = 0; i < security_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, security_.getRaw(i));
     }
     unknownFields.writeTo(output);
   }
@@ -161,8 +175,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getSecurityDefinitionBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, securityDefinition_);
+    {
+      int dataSize = 0;
+      for (int i = 0; i < security_.size(); i++) {
+        dataSize += computeStringSizeNoTag(security_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getSecurityList().size();
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -179,8 +198,8 @@ private static final long serialVersionUID = 0L;
     }
     io.nitric.proto.faas.v1.ApiWorkerOptions other = (io.nitric.proto.faas.v1.ApiWorkerOptions) obj;
 
-    if (!getSecurityDefinition()
-        .equals(other.getSecurityDefinition())) return false;
+    if (!getSecurityList()
+        .equals(other.getSecurityList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -192,8 +211,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SECURITY_DEFINITION_FIELD_NUMBER;
-    hash = (53 * hash) + getSecurityDefinition().hashCode();
+    if (getSecurityCount() > 0) {
+      hash = (37 * hash) + SECURITY_FIELD_NUMBER;
+      hash = (53 * hash) + getSecurityList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -327,8 +348,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      securityDefinition_ = "";
-
+      security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -355,7 +376,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.nitric.proto.faas.v1.ApiWorkerOptions buildPartial() {
       io.nitric.proto.faas.v1.ApiWorkerOptions result = new io.nitric.proto.faas.v1.ApiWorkerOptions(this);
-      result.securityDefinition_ = securityDefinition_;
+      int from_bitField0_ = bitField0_;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        security_ = security_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
+      result.security_ = security_;
       onBuilt();
       return result;
     }
@@ -404,8 +430,14 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.nitric.proto.faas.v1.ApiWorkerOptions other) {
       if (other == io.nitric.proto.faas.v1.ApiWorkerOptions.getDefaultInstance()) return this;
-      if (!other.getSecurityDefinition().isEmpty()) {
-        securityDefinition_ = other.securityDefinition_;
+      if (!other.security_.isEmpty()) {
+        if (security_.isEmpty()) {
+          security_ = other.security_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensureSecurityIsMutable();
+          security_.addAll(other.security_);
+        }
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -436,28 +468,14 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
-    private java.lang.Object securityDefinition_ = "";
-    /**
-     * <pre>
-     * Apply the api level security definition
-     * to this route
-     * </pre>
-     *
-     * <code>string security_definition = 1;</code>
-     * @return The securityDefinition.
-     */
-    public java.lang.String getSecurityDefinition() {
-      java.lang.Object ref = securityDefinition_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        securityDefinition_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    private com.google.protobuf.LazyStringList security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureSecurityIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        security_ = new com.google.protobuf.LazyStringArrayList(security_);
+        bitField0_ |= 0x00000001;
+       }
     }
     /**
      * <pre>
@@ -465,21 +483,51 @@ private static final long serialVersionUID = 0L;
      * to this route
      * </pre>
      *
-     * <code>string security_definition = 1;</code>
-     * @return The bytes for securityDefinition.
+     * <code>repeated string security = 1;</code>
+     * @return A list containing the security.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSecurityList() {
+      return security_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * Apply the api level security definition
+     * to this route
+     * </pre>
+     *
+     * <code>repeated string security = 1;</code>
+     * @return The count of security.
+     */
+    public int getSecurityCount() {
+      return security_.size();
+    }
+    /**
+     * <pre>
+     * Apply the api level security definition
+     * to this route
+     * </pre>
+     *
+     * <code>repeated string security = 1;</code>
+     * @param index The index of the element to return.
+     * @return The security at the given index.
+     */
+    public java.lang.String getSecurity(int index) {
+      return security_.get(index);
+    }
+    /**
+     * <pre>
+     * Apply the api level security definition
+     * to this route
+     * </pre>
+     *
+     * <code>repeated string security = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the security at the given index.
      */
     public com.google.protobuf.ByteString
-        getSecurityDefinitionBytes() {
-      java.lang.Object ref = securityDefinition_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        securityDefinition_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getSecurityBytes(int index) {
+      return security_.getByteString(index);
     }
     /**
      * <pre>
@@ -487,17 +535,38 @@ private static final long serialVersionUID = 0L;
      * to this route
      * </pre>
      *
-     * <code>string security_definition = 1;</code>
-     * @param value The securityDefinition to set.
+     * <code>repeated string security = 1;</code>
+     * @param index The index to set the value at.
+     * @param value The security to set.
      * @return This builder for chaining.
      */
-    public Builder setSecurityDefinition(
+    public Builder setSecurity(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSecurityIsMutable();
+      security_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Apply the api level security definition
+     * to this route
+     * </pre>
+     *
+     * <code>repeated string security = 1;</code>
+     * @param value The security to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSecurity(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  
-      securityDefinition_ = value;
+  ensureSecurityIsMutable();
+      security_.add(value);
       onChanged();
       return this;
     }
@@ -507,12 +576,15 @@ private static final long serialVersionUID = 0L;
      * to this route
      * </pre>
      *
-     * <code>string security_definition = 1;</code>
+     * <code>repeated string security = 1;</code>
+     * @param values The security to add.
      * @return This builder for chaining.
      */
-    public Builder clearSecurityDefinition() {
-      
-      securityDefinition_ = getDefaultInstance().getSecurityDefinition();
+    public Builder addAllSecurity(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureSecurityIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, security_);
       onChanged();
       return this;
     }
@@ -522,18 +594,33 @@ private static final long serialVersionUID = 0L;
      * to this route
      * </pre>
      *
-     * <code>string security_definition = 1;</code>
-     * @param value The bytes for securityDefinition to set.
+     * <code>repeated string security = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder setSecurityDefinitionBytes(
+    public Builder clearSecurity() {
+      security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Apply the api level security definition
+     * to this route
+     * </pre>
+     *
+     * <code>repeated string security = 1;</code>
+     * @param value The bytes of the security to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSecurityBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
-      securityDefinition_ = value;
+      ensureSecurityIsMutable();
+      security_.add(value);
       onChanged();
       return this;
     }

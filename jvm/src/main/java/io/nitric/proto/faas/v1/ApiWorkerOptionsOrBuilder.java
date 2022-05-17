@@ -13,19 +13,42 @@ public interface ApiWorkerOptionsOrBuilder extends
    * to this route
    * </pre>
    *
-   * <code>string security_definition = 1;</code>
-   * @return The securityDefinition.
+   * <code>repeated string security = 1;</code>
+   * @return A list containing the security.
    */
-  java.lang.String getSecurityDefinition();
+  java.util.List<java.lang.String>
+      getSecurityList();
   /**
    * <pre>
    * Apply the api level security definition
    * to this route
    * </pre>
    *
-   * <code>string security_definition = 1;</code>
-   * @return The bytes for securityDefinition.
+   * <code>repeated string security = 1;</code>
+   * @return The count of security.
+   */
+  int getSecurityCount();
+  /**
+   * <pre>
+   * Apply the api level security definition
+   * to this route
+   * </pre>
+   *
+   * <code>repeated string security = 1;</code>
+   * @param index The index of the element to return.
+   * @return The security at the given index.
+   */
+  java.lang.String getSecurity(int index);
+  /**
+   * <pre>
+   * Apply the api level security definition
+   * to this route
+   * </pre>
+   *
+   * <code>repeated string security = 1;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the security at the given index.
    */
   com.google.protobuf.ByteString
-      getSecurityDefinitionBytes();
+      getSecurityBytes(int index);
 }

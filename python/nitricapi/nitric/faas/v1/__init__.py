@@ -38,7 +38,7 @@ class ServerMessage(betterproto.Message):
 @dataclass(eq=False, repr=False)
 class ApiWorkerOptions(betterproto.Message):
     # Apply the api level security definition to this route
-    security_definition: str = betterproto.string_field(1)
+    security: List[str] = betterproto.string_field(1)
 
 
 @dataclass(eq=False, repr=False)
