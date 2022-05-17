@@ -1,5 +1,6 @@
 {
   "name": "@nitric/api",
+  "version": "0.17.0-rc.1",
   "description": "Nitric NodeJS base SDK",
   "author": "Nitric <https://github.com/nitrictech>",
   "repository": "https://github.com/nitrictech/base-sdk",
