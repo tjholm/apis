@@ -71,18 +71,7 @@ public interface ApiResourceOrBuilder extends
    * root level security for this api
    * </pre>
    *
-   * <code>repeated string security = 2;</code>
-   * @return A list containing the security.
-   */
-  java.util.List<java.lang.String>
-      getSecurityList();
-  /**
-   * <pre>
-   * root level security for this api
-   * </pre>
-   *
-   * <code>repeated string security = 2;</code>
-   * @return The count of security.
+   * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
    */
   int getSecurityCount();
   /**
@@ -90,20 +79,44 @@ public interface ApiResourceOrBuilder extends
    * root level security for this api
    * </pre>
    *
-   * <code>repeated string security = 2;</code>
-   * @param index The index of the element to return.
-   * @return The security at the given index.
+   * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
    */
-  java.lang.String getSecurity(int index);
+  boolean containsSecurity(
+      java.lang.String key);
+  /**
+   * Use {@link #getSecurityMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes>
+  getSecurity();
   /**
    * <pre>
    * root level security for this api
    * </pre>
    *
-   * <code>repeated string security = 2;</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the security at the given index.
+   * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
    */
-  com.google.protobuf.ByteString
-      getSecurityBytes(int index);
+  java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes>
+  getSecurityMap();
+  /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
+   * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
+   */
+
+  io.nitric.proto.resource.v1.ApiScopes getSecurityOrDefault(
+      java.lang.String key,
+      io.nitric.proto.resource.v1.ApiScopes defaultValue);
+  /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
+   * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
+   */
+
+  io.nitric.proto.resource.v1.ApiScopes getSecurityOrThrow(
+      java.lang.String key);
 }

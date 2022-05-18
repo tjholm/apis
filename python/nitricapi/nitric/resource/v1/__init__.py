@@ -112,6 +112,11 @@ class ApiSecurityDefinition(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class ApiScopes(betterproto.Message):
+    scopes: List[str] = betterproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
 class ApiResource(betterproto.Message):
     # Security definitions for the api These may be used by registered routes and
     # operations on the API
@@ -119,7 +124,9 @@ class ApiResource(betterproto.Message):
         1, betterproto.TYPE_STRING, betterproto.TYPE_MESSAGE
     )
     # root level security for this api
-    security: List[str] = betterproto.string_field(2)
+    security: Dict[str, "ApiScopes"] = betterproto.map_field(
+        2, betterproto.TYPE_STRING, betterproto.TYPE_MESSAGE
+    )
 
 
 @dataclass(eq=False, repr=False)

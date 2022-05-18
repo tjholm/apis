@@ -272,14 +272,33 @@ export namespace ApiSecurityDefinition {
   }
 }
 
+export class ApiScopes extends jspb.Message {
+  clearScopesList(): void;
+  getScopesList(): Array<string>;
+  setScopesList(value: Array<string>): void;
+  addScopes(value: string, index?: number): string;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ApiScopes.AsObject;
+  static toObject(includeInstance: boolean, msg: ApiScopes): ApiScopes.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ApiScopes, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ApiScopes;
+  static deserializeBinaryFromReader(message: ApiScopes, reader: jspb.BinaryReader): ApiScopes;
+}
+
+export namespace ApiScopes {
+  export type AsObject = {
+    scopesList: Array<string>,
+  }
+}
+
 export class ApiResource extends jspb.Message {
   getSecurityDefinitionsMap(): jspb.Map<string, ApiSecurityDefinition>;
   clearSecurityDefinitionsMap(): void;
-  clearSecurityList(): void;
-  getSecurityList(): Array<string>;
-  setSecurityList(value: Array<string>): void;
-  addSecurity(value: string, index?: number): string;
-
+  getSecurityMap(): jspb.Map<string, ApiScopes>;
+  clearSecurityMap(): void;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ApiResource.AsObject;
   static toObject(includeInstance: boolean, msg: ApiResource): ApiResource.AsObject;
@@ -293,7 +312,7 @@ export class ApiResource extends jspb.Message {
 export namespace ApiResource {
   export type AsObject = {
     securityDefinitionsMap: Array<[string, ApiSecurityDefinition.AsObject]>,
-    securityList: Array<string>,
+    securityMap: Array<[string, ApiScopes.AsObject]>,
   }
 }
 

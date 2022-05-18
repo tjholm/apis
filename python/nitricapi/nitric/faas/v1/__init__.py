@@ -36,14 +36,14 @@ class ServerMessage(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
-class SecurityScopes(betterproto.Message):
+class ApiWorkerScopes(betterproto.Message):
     scopes: List[str] = betterproto.string_field(1)
 
 
 @dataclass(eq=False, repr=False)
 class ApiWorkerOptions(betterproto.Message):
     # Apply security definitions to this operation
-    security: Dict[str, "SecurityScopes"] = betterproto.map_field(
+    security: Dict[str, "ApiWorkerScopes"] = betterproto.map_field(
         1, betterproto.TYPE_STRING, betterproto.TYPE_MESSAGE
     )
     # explicitly disable security for this endpoint We need to do this as the

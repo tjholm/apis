@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
                   SecurityDefaultEntryHolder.defaultEntry);
               mutable_bitField0_ |= 0x00000001;
             }
-            com.google.protobuf.MapEntry<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes>
+            com.google.protobuf.MapEntry<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes>
             security__ = input.readMessage(
                 SecurityDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
             security_.getMutableMap().put(
@@ -114,18 +114,18 @@ private static final long serialVersionUID = 0L;
   public static final int SECURITY_FIELD_NUMBER = 1;
   private static final class SecurityDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
-        java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> defaultEntry =
+        java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> defaultEntry =
             com.google.protobuf.MapEntry
-            .<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes>newDefaultInstance(
+            .<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes>newDefaultInstance(
                 io.nitric.proto.faas.v1.NitricFaas.internal_static_nitric_faas_v1_ApiWorkerOptions_SecurityEntry_descriptor, 
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                io.nitric.proto.faas.v1.SecurityScopes.getDefaultInstance());
+                io.nitric.proto.faas.v1.ApiWorkerScopes.getDefaultInstance());
   }
   private com.google.protobuf.MapField<
-      java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> security_;
-  private com.google.protobuf.MapField<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes>
+      java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> security_;
+  private com.google.protobuf.MapField<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes>
   internalGetSecurity() {
     if (security_ == null) {
       return com.google.protobuf.MapField.emptyMapField(
@@ -142,7 +142,7 @@ private static final long serialVersionUID = 0L;
    * Apply security definitions to this operation
    * </pre>
    *
-   * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+   * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
    */
 
   @java.lang.Override
@@ -156,7 +156,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated
-  public java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> getSecurity() {
+  public java.util.Map<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> getSecurity() {
     return getSecurityMap();
   }
   /**
@@ -164,11 +164,11 @@ private static final long serialVersionUID = 0L;
    * Apply security definitions to this operation
    * </pre>
    *
-   * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+   * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
    */
   @java.lang.Override
 
-  public java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> getSecurityMap() {
+  public java.util.Map<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> getSecurityMap() {
     return internalGetSecurity().getMap();
   }
   /**
@@ -176,15 +176,15 @@ private static final long serialVersionUID = 0L;
    * Apply security definitions to this operation
    * </pre>
    *
-   * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+   * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
    */
   @java.lang.Override
 
-  public io.nitric.proto.faas.v1.SecurityScopes getSecurityOrDefault(
+  public io.nitric.proto.faas.v1.ApiWorkerScopes getSecurityOrDefault(
       java.lang.String key,
-      io.nitric.proto.faas.v1.SecurityScopes defaultValue) {
+      io.nitric.proto.faas.v1.ApiWorkerScopes defaultValue) {
     if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> map =
+    java.util.Map<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> map =
         internalGetSecurity().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
@@ -193,14 +193,14 @@ private static final long serialVersionUID = 0L;
    * Apply security definitions to this operation
    * </pre>
    *
-   * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+   * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
    */
   @java.lang.Override
 
-  public io.nitric.proto.faas.v1.SecurityScopes getSecurityOrThrow(
+  public io.nitric.proto.faas.v1.ApiWorkerScopes getSecurityOrThrow(
       java.lang.String key) {
     if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> map =
+    java.util.Map<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> map =
         internalGetSecurity().getMap();
     if (!map.containsKey(key)) {
       throw new java.lang.IllegalArgumentException();
@@ -257,9 +257,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (java.util.Map.Entry<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> entry
+    for (java.util.Map.Entry<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> entry
          : internalGetSecurity().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes>
+      com.google.protobuf.MapEntry<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes>
       security__ = SecurityDefaultEntryHolder.defaultEntry.newBuilderForType()
           .setKey(entry.getKey())
           .setValue(entry.getValue())
@@ -580,8 +580,8 @@ private static final long serialVersionUID = 0L;
     private int bitField0_;
 
     private com.google.protobuf.MapField<
-        java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> security_;
-    private com.google.protobuf.MapField<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes>
+        java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> security_;
+    private com.google.protobuf.MapField<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes>
     internalGetSecurity() {
       if (security_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -589,7 +589,7 @@ private static final long serialVersionUID = 0L;
       }
       return security_;
     }
-    private com.google.protobuf.MapField<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes>
+    private com.google.protobuf.MapField<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes>
     internalGetMutableSecurity() {
       onChanged();;
       if (security_ == null) {
@@ -610,7 +610,7 @@ private static final long serialVersionUID = 0L;
      * Apply security definitions to this operation
      * </pre>
      *
-     * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+     * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
      */
 
     @java.lang.Override
@@ -624,7 +624,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> getSecurity() {
+    public java.util.Map<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> getSecurity() {
       return getSecurityMap();
     }
     /**
@@ -632,11 +632,11 @@ private static final long serialVersionUID = 0L;
      * Apply security definitions to this operation
      * </pre>
      *
-     * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+     * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> getSecurityMap() {
+    public java.util.Map<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> getSecurityMap() {
       return internalGetSecurity().getMap();
     }
     /**
@@ -644,15 +644,15 @@ private static final long serialVersionUID = 0L;
      * Apply security definitions to this operation
      * </pre>
      *
-     * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+     * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
      */
     @java.lang.Override
 
-    public io.nitric.proto.faas.v1.SecurityScopes getSecurityOrDefault(
+    public io.nitric.proto.faas.v1.ApiWorkerScopes getSecurityOrDefault(
         java.lang.String key,
-        io.nitric.proto.faas.v1.SecurityScopes defaultValue) {
+        io.nitric.proto.faas.v1.ApiWorkerScopes defaultValue) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> map =
+      java.util.Map<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> map =
           internalGetSecurity().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -661,14 +661,14 @@ private static final long serialVersionUID = 0L;
      * Apply security definitions to this operation
      * </pre>
      *
-     * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+     * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
      */
     @java.lang.Override
 
-    public io.nitric.proto.faas.v1.SecurityScopes getSecurityOrThrow(
+    public io.nitric.proto.faas.v1.ApiWorkerScopes getSecurityOrThrow(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> map =
+      java.util.Map<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> map =
           internalGetSecurity().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
@@ -686,7 +686,7 @@ private static final long serialVersionUID = 0L;
      * Apply security definitions to this operation
      * </pre>
      *
-     * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+     * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
      */
 
     public Builder removeSecurity(
@@ -700,7 +700,7 @@ private static final long serialVersionUID = 0L;
      * Use alternate mutation accessors instead.
      */
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes>
+    public java.util.Map<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes>
     getMutableSecurity() {
       return internalGetMutableSecurity().getMutableMap();
     }
@@ -709,11 +709,11 @@ private static final long serialVersionUID = 0L;
      * Apply security definitions to this operation
      * </pre>
      *
-     * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+     * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
      */
     public Builder putSecurity(
         java.lang.String key,
-        io.nitric.proto.faas.v1.SecurityScopes value) {
+        io.nitric.proto.faas.v1.ApiWorkerScopes value) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       if (value == null) { throw new java.lang.NullPointerException(); }
       internalGetMutableSecurity().getMutableMap()
@@ -725,11 +725,11 @@ private static final long serialVersionUID = 0L;
      * Apply security definitions to this operation
      * </pre>
      *
-     * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+     * <code>map&lt;string, .nitric.faas.v1.ApiWorkerScopes&gt; security = 1;</code>
      */
 
     public Builder putAllSecurity(
-        java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes> values) {
+        java.util.Map<java.lang.String, io.nitric.proto.faas.v1.ApiWorkerScopes> values) {
       internalGetMutableSecurity().getMutableMap()
           .putAll(values);
       return this;

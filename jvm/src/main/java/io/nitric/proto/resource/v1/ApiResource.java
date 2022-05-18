@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ApiResource() {
-    security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -64,12 +63,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              security_ = new com.google.protobuf.LazyStringArrayList();
+              security_ = com.google.protobuf.MapField.newMapField(
+                  SecurityDefaultEntryHolder.defaultEntry);
               mutable_bitField0_ |= 0x00000002;
             }
-            security_.add(s);
+            com.google.protobuf.MapEntry<java.lang.String, io.nitric.proto.resource.v1.ApiScopes>
+            security__ = input.readMessage(
+                SecurityDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            security_.getMutableMap().put(
+                security__.getKey(), security__.getValue());
             break;
           }
           default: {
@@ -87,9 +90,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        security_ = security_.getUnmodifiableView();
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -106,6 +106,8 @@ private static final long serialVersionUID = 0L;
     switch (number) {
       case 1:
         return internalGetSecurityDefinitions();
+      case 2:
+        return internalGetSecurity();
       default:
         throw new RuntimeException(
             "Invalid map field number: " + number);
@@ -221,54 +223,100 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECURITY_FIELD_NUMBER = 2;
-  private com.google.protobuf.LazyStringList security_;
-  /**
-   * <pre>
-   * root level security for this api
-   * </pre>
-   *
-   * <code>repeated string security = 2;</code>
-   * @return A list containing the security.
-   */
-  public com.google.protobuf.ProtocolStringList
-      getSecurityList() {
+  private static final class SecurityDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, io.nitric.proto.resource.v1.ApiScopes> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, io.nitric.proto.resource.v1.ApiScopes>newDefaultInstance(
+                io.nitric.proto.resource.v1.Resources.internal_static_nitric_resource_v1_ApiResource_SecurityEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                io.nitric.proto.resource.v1.ApiScopes.getDefaultInstance());
+  }
+  private com.google.protobuf.MapField<
+      java.lang.String, io.nitric.proto.resource.v1.ApiScopes> security_;
+  private com.google.protobuf.MapField<java.lang.String, io.nitric.proto.resource.v1.ApiScopes>
+  internalGetSecurity() {
+    if (security_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          SecurityDefaultEntryHolder.defaultEntry);
+    }
     return security_;
   }
-  /**
-   * <pre>
-   * root level security for this api
-   * </pre>
-   *
-   * <code>repeated string security = 2;</code>
-   * @return The count of security.
-   */
+
   public int getSecurityCount() {
-    return security_.size();
+    return internalGetSecurity().getMap().size();
   }
   /**
    * <pre>
    * root level security for this api
    * </pre>
    *
-   * <code>repeated string security = 2;</code>
-   * @param index The index of the element to return.
-   * @return The security at the given index.
+   * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
    */
-  public java.lang.String getSecurity(int index) {
-    return security_.get(index);
+
+  @java.lang.Override
+  public boolean containsSecurity(
+      java.lang.String key) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    return internalGetSecurity().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getSecurityMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes> getSecurity() {
+    return getSecurityMap();
   }
   /**
    * <pre>
    * root level security for this api
    * </pre>
    *
-   * <code>repeated string security = 2;</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the security at the given index.
+   * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
    */
-  public com.google.protobuf.ByteString
-      getSecurityBytes(int index) {
-    return security_.getByteString(index);
+  @java.lang.Override
+
+  public java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes> getSecurityMap() {
+    return internalGetSecurity().getMap();
+  }
+  /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
+   * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
+   */
+  @java.lang.Override
+
+  public io.nitric.proto.resource.v1.ApiScopes getSecurityOrDefault(
+      java.lang.String key,
+      io.nitric.proto.resource.v1.ApiScopes defaultValue) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes> map =
+        internalGetSecurity().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
+   * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
+   */
+  @java.lang.Override
+
+  public io.nitric.proto.resource.v1.ApiScopes getSecurityOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes> map =
+        internalGetSecurity().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -291,9 +339,12 @@ private static final long serialVersionUID = 0L;
         internalGetSecurityDefinitions(),
         SecurityDefinitionsDefaultEntryHolder.defaultEntry,
         1);
-    for (int i = 0; i < security_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, security_.getRaw(i));
-    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetSecurity(),
+        SecurityDefaultEntryHolder.defaultEntry,
+        2);
     unknownFields.writeTo(output);
   }
 
@@ -313,13 +364,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, securityDefinitions__);
     }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < security_.size(); i++) {
-        dataSize += computeStringSizeNoTag(security_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getSecurityList().size();
+    for (java.util.Map.Entry<java.lang.String, io.nitric.proto.resource.v1.ApiScopes> entry
+         : internalGetSecurity().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, io.nitric.proto.resource.v1.ApiScopes>
+      security__ = SecurityDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, security__);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -338,8 +391,8 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetSecurityDefinitions().equals(
         other.internalGetSecurityDefinitions())) return false;
-    if (!getSecurityList()
-        .equals(other.getSecurityList())) return false;
+    if (!internalGetSecurity().equals(
+        other.internalGetSecurity())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -355,9 +408,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SECURITY_DEFINITIONS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetSecurityDefinitions().hashCode();
     }
-    if (getSecurityCount() > 0) {
+    if (!internalGetSecurity().getMap().isEmpty()) {
       hash = (37 * hash) + SECURITY_FIELD_NUMBER;
-      hash = (53 * hash) + getSecurityList().hashCode();
+      hash = (53 * hash) + internalGetSecurity().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -472,6 +525,8 @@ private static final long serialVersionUID = 0L;
       switch (number) {
         case 1:
           return internalGetSecurityDefinitions();
+        case 2:
+          return internalGetSecurity();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -483,6 +538,8 @@ private static final long serialVersionUID = 0L;
       switch (number) {
         case 1:
           return internalGetMutableSecurityDefinitions();
+        case 2:
+          return internalGetMutableSecurity();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -515,8 +572,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       internalGetMutableSecurityDefinitions().clear();
-      security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      internalGetMutableSecurity().clear();
       return this;
     }
 
@@ -546,11 +602,8 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       result.securityDefinitions_ = internalGetSecurityDefinitions();
       result.securityDefinitions_.makeImmutable();
-      if (((bitField0_ & 0x00000002) != 0)) {
-        security_ = security_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.security_ = security_;
+      result.security_ = internalGetSecurity();
+      result.security_.makeImmutable();
       onBuilt();
       return result;
     }
@@ -601,16 +654,8 @@ private static final long serialVersionUID = 0L;
       if (other == io.nitric.proto.resource.v1.ApiResource.getDefaultInstance()) return this;
       internalGetMutableSecurityDefinitions().mergeFrom(
           other.internalGetSecurityDefinitions());
-      if (!other.security_.isEmpty()) {
-        if (security_.isEmpty()) {
-          security_ = other.security_;
-          bitField0_ = (bitField0_ & ~0x00000002);
-        } else {
-          ensureSecurityIsMutable();
-          security_.addAll(other.security_);
-        }
-        onChanged();
-      }
+      internalGetMutableSecurity().mergeFrom(
+          other.internalGetSecurity());
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -804,129 +849,106 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringList security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureSecurityIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
-        security_ = new com.google.protobuf.LazyStringArrayList(security_);
-        bitField0_ |= 0x00000002;
-       }
+    private com.google.protobuf.MapField<
+        java.lang.String, io.nitric.proto.resource.v1.ApiScopes> security_;
+    private com.google.protobuf.MapField<java.lang.String, io.nitric.proto.resource.v1.ApiScopes>
+    internalGetSecurity() {
+      if (security_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            SecurityDefaultEntryHolder.defaultEntry);
+      }
+      return security_;
     }
-    /**
-     * <pre>
-     * root level security for this api
-     * </pre>
-     *
-     * <code>repeated string security = 2;</code>
-     * @return A list containing the security.
-     */
-    public com.google.protobuf.ProtocolStringList
-        getSecurityList() {
-      return security_.getUnmodifiableView();
+    private com.google.protobuf.MapField<java.lang.String, io.nitric.proto.resource.v1.ApiScopes>
+    internalGetMutableSecurity() {
+      onChanged();;
+      if (security_ == null) {
+        security_ = com.google.protobuf.MapField.newMapField(
+            SecurityDefaultEntryHolder.defaultEntry);
+      }
+      if (!security_.isMutable()) {
+        security_ = security_.copy();
+      }
+      return security_;
     }
-    /**
-     * <pre>
-     * root level security for this api
-     * </pre>
-     *
-     * <code>repeated string security = 2;</code>
-     * @return The count of security.
-     */
+
     public int getSecurityCount() {
-      return security_.size();
+      return internalGetSecurity().getMap().size();
     }
     /**
      * <pre>
      * root level security for this api
      * </pre>
      *
-     * <code>repeated string security = 2;</code>
-     * @param index The index of the element to return.
-     * @return The security at the given index.
+     * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
      */
-    public java.lang.String getSecurity(int index) {
-      return security_.get(index);
+
+    @java.lang.Override
+    public boolean containsSecurity(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetSecurity().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getSecurityMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes> getSecurity() {
+      return getSecurityMap();
     }
     /**
      * <pre>
      * root level security for this api
      * </pre>
      *
-     * <code>repeated string security = 2;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the security at the given index.
+     * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getSecurityBytes(int index) {
-      return security_.getByteString(index);
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes> getSecurityMap() {
+      return internalGetSecurity().getMap();
     }
     /**
      * <pre>
      * root level security for this api
      * </pre>
      *
-     * <code>repeated string security = 2;</code>
-     * @param index The index to set the value at.
-     * @param value The security to set.
-     * @return This builder for chaining.
+     * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
      */
-    public Builder setSecurity(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSecurityIsMutable();
-      security_.set(index, value);
-      onChanged();
-      return this;
+    @java.lang.Override
+
+    public io.nitric.proto.resource.v1.ApiScopes getSecurityOrDefault(
+        java.lang.String key,
+        io.nitric.proto.resource.v1.ApiScopes defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes> map =
+          internalGetSecurity().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
      * <pre>
      * root level security for this api
      * </pre>
      *
-     * <code>repeated string security = 2;</code>
-     * @param value The security to add.
-     * @return This builder for chaining.
+     * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
      */
-    public Builder addSecurity(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSecurityIsMutable();
-      security_.add(value);
-      onChanged();
-      return this;
+    @java.lang.Override
+
+    public io.nitric.proto.resource.v1.ApiScopes getSecurityOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes> map =
+          internalGetSecurity().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
     }
-    /**
-     * <pre>
-     * root level security for this api
-     * </pre>
-     *
-     * <code>repeated string security = 2;</code>
-     * @param values The security to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllSecurity(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureSecurityIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, security_);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * root level security for this api
-     * </pre>
-     *
-     * <code>repeated string security = 2;</code>
-     * @return This builder for chaining.
-     */
+
     public Builder clearSecurity() {
-      security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      onChanged();
+      internalGetMutableSecurity().getMutableMap()
+          .clear();
       return this;
     }
     /**
@@ -934,19 +956,52 @@ private static final long serialVersionUID = 0L;
      * root level security for this api
      * </pre>
      *
-     * <code>repeated string security = 2;</code>
-     * @param value The bytes of the security to add.
-     * @return This builder for chaining.
+     * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
      */
-    public Builder addSecurityBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      ensureSecurityIsMutable();
-      security_.add(value);
-      onChanged();
+
+    public Builder removeSecurity(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      internalGetMutableSecurity().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes>
+    getMutableSecurity() {
+      return internalGetMutableSecurity().getMutableMap();
+    }
+    /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
+     * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
+     */
+    public Builder putSecurity(
+        java.lang.String key,
+        io.nitric.proto.resource.v1.ApiScopes value) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (value == null) { throw new java.lang.NullPointerException(); }
+      internalGetMutableSecurity().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
+     * <code>map&lt;string, .nitric.resource.v1.ApiScopes&gt; security = 2;</code>
+     */
+
+    public Builder putAllSecurity(
+        java.util.Map<java.lang.String, io.nitric.proto.resource.v1.ApiScopes> values) {
+      internalGetMutableSecurity().getMutableMap()
+          .putAll(values);
       return this;
     }
     @java.lang.Override

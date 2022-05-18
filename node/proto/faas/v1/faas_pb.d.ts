@@ -81,30 +81,30 @@ export namespace ServerMessage {
   }
 }
 
-export class SecurityScopes extends jspb.Message {
+export class ApiWorkerScopes extends jspb.Message {
   clearScopesList(): void;
   getScopesList(): Array<string>;
   setScopesList(value: Array<string>): void;
   addScopes(value: string, index?: number): string;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SecurityScopes.AsObject;
-  static toObject(includeInstance: boolean, msg: SecurityScopes): SecurityScopes.AsObject;
+  toObject(includeInstance?: boolean): ApiWorkerScopes.AsObject;
+  static toObject(includeInstance: boolean, msg: ApiWorkerScopes): ApiWorkerScopes.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SecurityScopes, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SecurityScopes;
-  static deserializeBinaryFromReader(message: SecurityScopes, reader: jspb.BinaryReader): SecurityScopes;
+  static serializeBinaryToWriter(message: ApiWorkerScopes, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ApiWorkerScopes;
+  static deserializeBinaryFromReader(message: ApiWorkerScopes, reader: jspb.BinaryReader): ApiWorkerScopes;
 }
 
-export namespace SecurityScopes {
+export namespace ApiWorkerScopes {
   export type AsObject = {
     scopesList: Array<string>,
   }
 }
 
 export class ApiWorkerOptions extends jspb.Message {
-  getSecurityMap(): jspb.Map<string, SecurityScopes>;
+  getSecurityMap(): jspb.Map<string, ApiWorkerScopes>;
   clearSecurityMap(): void;
   getSecurityDisabled(): boolean;
   setSecurityDisabled(value: boolean): void;
@@ -121,7 +121,7 @@ export class ApiWorkerOptions extends jspb.Message {
 
 export namespace ApiWorkerOptions {
   export type AsObject = {
-    securityMap: Array<[string, SecurityScopes.AsObject]>,
+    securityMap: Array<[string, ApiWorkerScopes.AsObject]>,
     securityDisabled: boolean,
   }
 }
