@@ -37,8 +37,12 @@ class ServerMessage(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class ApiWorkerOptions(betterproto.Message):
-    # Apply the api level security definition to this route
+    # Apply security definitions to this operation
     security: List[str] = betterproto.string_field(1)
+    # explicitly disable security for this endpoint We need to do this as the
+    # default value of a repeated field is always empty so there is no way of
+    # knowing if security is explicitly disabled
+    security_disabled: bool = betterproto.bool_field(2)
 
 
 @dataclass(eq=False, repr=False)

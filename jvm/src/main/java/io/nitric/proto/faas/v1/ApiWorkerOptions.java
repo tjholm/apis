@@ -59,6 +59,11 @@ private static final long serialVersionUID = 0L;
             security_.add(s);
             break;
           }
+          case 16: {
+
+            securityDisabled_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -98,8 +103,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList security_;
   /**
    * <pre>
-   * Apply the api level security definition
-   * to this route
+   * Apply security definitions to this operation
    * </pre>
    *
    * <code>repeated string security = 1;</code>
@@ -111,8 +115,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Apply the api level security definition
-   * to this route
+   * Apply security definitions to this operation
    * </pre>
    *
    * <code>repeated string security = 1;</code>
@@ -123,8 +126,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Apply the api level security definition
-   * to this route
+   * Apply security definitions to this operation
    * </pre>
    *
    * <code>repeated string security = 1;</code>
@@ -136,8 +138,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Apply the api level security definition
-   * to this route
+   * Apply security definitions to this operation
    * </pre>
    *
    * <code>repeated string security = 1;</code>
@@ -147,6 +148,23 @@ private static final long serialVersionUID = 0L;
   public com.google.protobuf.ByteString
       getSecurityBytes(int index) {
     return security_.getByteString(index);
+  }
+
+  public static final int SECURITY_DISABLED_FIELD_NUMBER = 2;
+  private boolean securityDisabled_;
+  /**
+   * <pre>
+   * explicitly disable security for this endpoint
+   * We need to do this as the default value of a repeated field
+   * is always empty so there is no way of knowing if security is explicitly disabled
+   * </pre>
+   *
+   * <code>bool security_disabled = 2;</code>
+   * @return The securityDisabled.
+   */
+  @java.lang.Override
+  public boolean getSecurityDisabled() {
+    return securityDisabled_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -166,6 +184,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < security_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, security_.getRaw(i));
     }
+    if (securityDisabled_ != false) {
+      output.writeBool(2, securityDisabled_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -182,6 +203,10 @@ private static final long serialVersionUID = 0L;
       }
       size += dataSize;
       size += 1 * getSecurityList().size();
+    }
+    if (securityDisabled_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(2, securityDisabled_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -200,6 +225,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getSecurityList()
         .equals(other.getSecurityList())) return false;
+    if (getSecurityDisabled()
+        != other.getSecurityDisabled()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -215,6 +242,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SECURITY_FIELD_NUMBER;
       hash = (53 * hash) + getSecurityList().hashCode();
     }
+    hash = (37 * hash) + SECURITY_DISABLED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getSecurityDisabled());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -350,6 +380,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       security_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
+      securityDisabled_ = false;
+
       return this;
     }
 
@@ -382,6 +414,7 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.security_ = security_;
+      result.securityDisabled_ = securityDisabled_;
       onBuilt();
       return result;
     }
@@ -440,6 +473,9 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
+      if (other.getSecurityDisabled() != false) {
+        setSecurityDisabled(other.getSecurityDisabled());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -479,8 +515,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Apply the api level security definition
-     * to this route
+     * Apply security definitions to this operation
      * </pre>
      *
      * <code>repeated string security = 1;</code>
@@ -492,8 +527,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Apply the api level security definition
-     * to this route
+     * Apply security definitions to this operation
      * </pre>
      *
      * <code>repeated string security = 1;</code>
@@ -504,8 +538,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Apply the api level security definition
-     * to this route
+     * Apply security definitions to this operation
      * </pre>
      *
      * <code>repeated string security = 1;</code>
@@ -517,8 +550,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Apply the api level security definition
-     * to this route
+     * Apply security definitions to this operation
      * </pre>
      *
      * <code>repeated string security = 1;</code>
@@ -531,8 +563,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Apply the api level security definition
-     * to this route
+     * Apply security definitions to this operation
      * </pre>
      *
      * <code>repeated string security = 1;</code>
@@ -552,8 +583,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Apply the api level security definition
-     * to this route
+     * Apply security definitions to this operation
      * </pre>
      *
      * <code>repeated string security = 1;</code>
@@ -572,8 +602,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Apply the api level security definition
-     * to this route
+     * Apply security definitions to this operation
      * </pre>
      *
      * <code>repeated string security = 1;</code>
@@ -590,8 +619,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Apply the api level security definition
-     * to this route
+     * Apply security definitions to this operation
      * </pre>
      *
      * <code>repeated string security = 1;</code>
@@ -605,8 +633,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Apply the api level security definition
-     * to this route
+     * Apply security definitions to this operation
      * </pre>
      *
      * <code>repeated string security = 1;</code>
@@ -621,6 +648,55 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       ensureSecurityIsMutable();
       security_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private boolean securityDisabled_ ;
+    /**
+     * <pre>
+     * explicitly disable security for this endpoint
+     * We need to do this as the default value of a repeated field
+     * is always empty so there is no way of knowing if security is explicitly disabled
+     * </pre>
+     *
+     * <code>bool security_disabled = 2;</code>
+     * @return The securityDisabled.
+     */
+    @java.lang.Override
+    public boolean getSecurityDisabled() {
+      return securityDisabled_;
+    }
+    /**
+     * <pre>
+     * explicitly disable security for this endpoint
+     * We need to do this as the default value of a repeated field
+     * is always empty so there is no way of knowing if security is explicitly disabled
+     * </pre>
+     *
+     * <code>bool security_disabled = 2;</code>
+     * @param value The securityDisabled to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSecurityDisabled(boolean value) {
+      
+      securityDisabled_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * explicitly disable security for this endpoint
+     * We need to do this as the default value of a repeated field
+     * is always empty so there is no way of knowing if security is explicitly disabled
+     * </pre>
+     *
+     * <code>bool security_disabled = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSecurityDisabled() {
+      
+      securityDisabled_ = false;
       onChanged();
       return this;
     }

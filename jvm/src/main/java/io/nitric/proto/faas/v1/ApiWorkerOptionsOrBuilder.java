@@ -9,8 +9,7 @@ public interface ApiWorkerOptionsOrBuilder extends
 
   /**
    * <pre>
-   * Apply the api level security definition
-   * to this route
+   * Apply security definitions to this operation
    * </pre>
    *
    * <code>repeated string security = 1;</code>
@@ -20,8 +19,7 @@ public interface ApiWorkerOptionsOrBuilder extends
       getSecurityList();
   /**
    * <pre>
-   * Apply the api level security definition
-   * to this route
+   * Apply security definitions to this operation
    * </pre>
    *
    * <code>repeated string security = 1;</code>
@@ -30,8 +28,7 @@ public interface ApiWorkerOptionsOrBuilder extends
   int getSecurityCount();
   /**
    * <pre>
-   * Apply the api level security definition
-   * to this route
+   * Apply security definitions to this operation
    * </pre>
    *
    * <code>repeated string security = 1;</code>
@@ -41,8 +38,7 @@ public interface ApiWorkerOptionsOrBuilder extends
   java.lang.String getSecurity(int index);
   /**
    * <pre>
-   * Apply the api level security definition
-   * to this route
+   * Apply security definitions to this operation
    * </pre>
    *
    * <code>repeated string security = 1;</code>
@@ -51,4 +47,16 @@ public interface ApiWorkerOptionsOrBuilder extends
    */
   com.google.protobuf.ByteString
       getSecurityBytes(int index);
+
+  /**
+   * <pre>
+   * explicitly disable security for this endpoint
+   * We need to do this as the default value of a repeated field
+   * is always empty so there is no way of knowing if security is explicitly disabled
+   * </pre>
+   *
+   * <code>bool security_disabled = 2;</code>
+   * @return The securityDisabled.
+   */
+  boolean getSecurityDisabled();
 }

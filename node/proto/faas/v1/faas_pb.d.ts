@@ -87,6 +87,9 @@ export class ApiWorkerOptions extends jspb.Message {
   setSecurityList(value: Array<string>): void;
   addSecurity(value: string, index?: number): string;
 
+  getSecurityDisabled(): boolean;
+  setSecurityDisabled(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ApiWorkerOptions.AsObject;
   static toObject(includeInstance: boolean, msg: ApiWorkerOptions): ApiWorkerOptions.AsObject;
@@ -100,6 +103,7 @@ export class ApiWorkerOptions extends jspb.Message {
 export namespace ApiWorkerOptions {
   export type AsObject = {
     securityList: Array<string>,
+    securityDisabled: boolean,
   }
 }
 

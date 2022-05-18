@@ -786,7 +786,8 @@ type ApiResource struct {
 	// Security definitions for the api
 	// These may be used by registered routes and operations on the API
 	SecurityDefinitions map[string]*ApiSecurityDefinition `protobuf:"bytes,1,rep,name=security_definitions,json=securityDefinitions,proto3" json:"security_definitions,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
-	Security            []string                          `protobuf:"bytes,2,rep,name=security,proto3" json:"security,omitempty"`
+	// root level security for this api
+	Security []string `protobuf:"bytes,2,rep,name=security,proto3" json:"security,omitempty"`
 }
 
 func (x *ApiResource) Reset() {

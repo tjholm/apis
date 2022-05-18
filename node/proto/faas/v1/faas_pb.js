@@ -972,7 +972,8 @@ proto.nitric.faas.v1.ApiWorkerOptions.prototype.toObject = function(opt_includeI
  */
 proto.nitric.faas.v1.ApiWorkerOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    securityList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f
+    securityList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
+    securityDisabled: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
   };
 
   if (includeInstance) {
@@ -1013,6 +1014,10 @@ proto.nitric.faas.v1.ApiWorkerOptions.deserializeBinaryFromReader = function(msg
       var value = /** @type {string} */ (reader.readString());
       msg.addSecurity(value);
       break;
+    case 2:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSecurityDisabled(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -1046,6 +1051,13 @@ proto.nitric.faas.v1.ApiWorkerOptions.serializeBinaryToWriter = function(message
   if (f.length > 0) {
     writer.writeRepeatedString(
       1,
+      f
+    );
+  }
+  f = message.getSecurityDisabled();
+  if (f) {
+    writer.writeBool(
+      2,
       f
     );
   }
@@ -1086,6 +1098,24 @@ proto.nitric.faas.v1.ApiWorkerOptions.prototype.addSecurity = function(value, op
  */
 proto.nitric.faas.v1.ApiWorkerOptions.prototype.clearSecurityList = function() {
   return this.setSecurityList([]);
+};
+
+
+/**
+ * optional bool security_disabled = 2;
+ * @return {boolean}
+ */
+proto.nitric.faas.v1.ApiWorkerOptions.prototype.getSecurityDisabled = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.nitric.faas.v1.ApiWorkerOptions} returns this
+ */
+proto.nitric.faas.v1.ApiWorkerOptions.prototype.setSecurityDisabled = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 

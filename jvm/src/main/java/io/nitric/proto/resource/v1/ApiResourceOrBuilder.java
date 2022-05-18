@@ -67,23 +67,39 @@ public interface ApiResourceOrBuilder extends
       java.lang.String key);
 
   /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
    * <code>repeated string security = 2;</code>
    * @return A list containing the security.
    */
   java.util.List<java.lang.String>
       getSecurityList();
   /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
    * <code>repeated string security = 2;</code>
    * @return The count of security.
    */
   int getSecurityCount();
   /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
    * <code>repeated string security = 2;</code>
    * @param index The index of the element to return.
    * @return The security at the given index.
    */
   java.lang.String getSecurity(int index);
   /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
    * <code>repeated string security = 2;</code>
    * @param index The index of the value to return.
    * @return The bytes of the security at the given index.

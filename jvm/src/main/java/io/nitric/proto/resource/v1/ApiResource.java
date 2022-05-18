@@ -223,6 +223,10 @@ private static final long serialVersionUID = 0L;
   public static final int SECURITY_FIELD_NUMBER = 2;
   private com.google.protobuf.LazyStringList security_;
   /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
    * <code>repeated string security = 2;</code>
    * @return A list containing the security.
    */
@@ -231,6 +235,10 @@ private static final long serialVersionUID = 0L;
     return security_;
   }
   /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
    * <code>repeated string security = 2;</code>
    * @return The count of security.
    */
@@ -238,6 +246,10 @@ private static final long serialVersionUID = 0L;
     return security_.size();
   }
   /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
    * <code>repeated string security = 2;</code>
    * @param index The index of the element to return.
    * @return The security at the given index.
@@ -246,6 +258,10 @@ private static final long serialVersionUID = 0L;
     return security_.get(index);
   }
   /**
+   * <pre>
+   * root level security for this api
+   * </pre>
+   *
    * <code>repeated string security = 2;</code>
    * @param index The index of the value to return.
    * @return The bytes of the security at the given index.
@@ -796,6 +812,10 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
      * <code>repeated string security = 2;</code>
      * @return A list containing the security.
      */
@@ -804,6 +824,10 @@ private static final long serialVersionUID = 0L;
       return security_.getUnmodifiableView();
     }
     /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
      * <code>repeated string security = 2;</code>
      * @return The count of security.
      */
@@ -811,6 +835,10 @@ private static final long serialVersionUID = 0L;
       return security_.size();
     }
     /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
      * <code>repeated string security = 2;</code>
      * @param index The index of the element to return.
      * @return The security at the given index.
@@ -819,6 +847,10 @@ private static final long serialVersionUID = 0L;
       return security_.get(index);
     }
     /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
      * <code>repeated string security = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the security at the given index.
@@ -828,6 +860,10 @@ private static final long serialVersionUID = 0L;
       return security_.getByteString(index);
     }
     /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
      * <code>repeated string security = 2;</code>
      * @param index The index to set the value at.
      * @param value The security to set.
@@ -844,6 +880,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
      * <code>repeated string security = 2;</code>
      * @param value The security to add.
      * @return This builder for chaining.
@@ -859,6 +899,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
      * <code>repeated string security = 2;</code>
      * @param values The security to add.
      * @return This builder for chaining.
@@ -872,6 +916,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
      * <code>repeated string security = 2;</code>
      * @return This builder for chaining.
      */
@@ -882,6 +930,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * root level security for this api
+     * </pre>
+     *
      * <code>repeated string security = 2;</code>
      * @param value The bytes of the security to add.
      * @return This builder for chaining.
