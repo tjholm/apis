@@ -81,12 +81,31 @@ export namespace ServerMessage {
   }
 }
 
-export class ApiWorkerOptions extends jspb.Message {
-  clearSecurityList(): void;
-  getSecurityList(): Array<string>;
-  setSecurityList(value: Array<string>): void;
-  addSecurity(value: string, index?: number): string;
+export class SecurityScopes extends jspb.Message {
+  clearScopesList(): void;
+  getScopesList(): Array<string>;
+  setScopesList(value: Array<string>): void;
+  addScopes(value: string, index?: number): string;
 
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SecurityScopes.AsObject;
+  static toObject(includeInstance: boolean, msg: SecurityScopes): SecurityScopes.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SecurityScopes, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SecurityScopes;
+  static deserializeBinaryFromReader(message: SecurityScopes, reader: jspb.BinaryReader): SecurityScopes;
+}
+
+export namespace SecurityScopes {
+  export type AsObject = {
+    scopesList: Array<string>,
+  }
+}
+
+export class ApiWorkerOptions extends jspb.Message {
+  getSecurityMap(): jspb.Map<string, SecurityScopes>;
+  clearSecurityMap(): void;
   getSecurityDisabled(): boolean;
   setSecurityDisabled(value: boolean): void;
 
@@ -102,7 +121,7 @@ export class ApiWorkerOptions extends jspb.Message {
 
 export namespace ApiWorkerOptions {
   export type AsObject = {
-    securityList: Array<string>,
+    securityMap: Array<[string, SecurityScopes.AsObject]>,
     securityDisabled: boolean,
   }
 }

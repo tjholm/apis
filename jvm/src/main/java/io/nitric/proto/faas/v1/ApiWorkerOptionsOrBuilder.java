@@ -12,18 +12,7 @@ public interface ApiWorkerOptionsOrBuilder extends
    * Apply security definitions to this operation
    * </pre>
    *
-   * <code>repeated string security = 1;</code>
-   * @return A list containing the security.
-   */
-  java.util.List<java.lang.String>
-      getSecurityList();
-  /**
-   * <pre>
-   * Apply security definitions to this operation
-   * </pre>
-   *
-   * <code>repeated string security = 1;</code>
-   * @return The count of security.
+   * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
    */
   int getSecurityCount();
   /**
@@ -31,22 +20,46 @@ public interface ApiWorkerOptionsOrBuilder extends
    * Apply security definitions to this operation
    * </pre>
    *
-   * <code>repeated string security = 1;</code>
-   * @param index The index of the element to return.
-   * @return The security at the given index.
+   * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
    */
-  java.lang.String getSecurity(int index);
+  boolean containsSecurity(
+      java.lang.String key);
+  /**
+   * Use {@link #getSecurityMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes>
+  getSecurity();
   /**
    * <pre>
    * Apply security definitions to this operation
    * </pre>
    *
-   * <code>repeated string security = 1;</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the security at the given index.
+   * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
    */
-  com.google.protobuf.ByteString
-      getSecurityBytes(int index);
+  java.util.Map<java.lang.String, io.nitric.proto.faas.v1.SecurityScopes>
+  getSecurityMap();
+  /**
+   * <pre>
+   * Apply security definitions to this operation
+   * </pre>
+   *
+   * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+   */
+
+  io.nitric.proto.faas.v1.SecurityScopes getSecurityOrDefault(
+      java.lang.String key,
+      io.nitric.proto.faas.v1.SecurityScopes defaultValue);
+  /**
+   * <pre>
+   * Apply security definitions to this operation
+   * </pre>
+   *
+   * <code>map&lt;string, .nitric.faas.v1.SecurityScopes&gt; security = 1;</code>
+   */
+
+  io.nitric.proto.faas.v1.SecurityScopes getSecurityOrThrow(
+      java.lang.String key);
 
   /**
    * <pre>
